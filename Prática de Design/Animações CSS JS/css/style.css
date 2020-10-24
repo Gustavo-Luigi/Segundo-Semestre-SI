@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    background-color: black;
+
+}
+.quadro{
+    position: relative;
+    width: 920px;
+    height: 500px;
+    margin: auto;
+}
+
+#lua{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+}
+#ovni{
+    position: absolute;
+    left: 0;
+    width: 30%;
+}
+#astronauta{
+    position: absolute;
+    right: 50px;
+    width: 15%;
+    top: 75%;
+}
+
+.cresce{
+    animation: pulsa-lua 3s linear infinite;
+}
+@keyframes pulsa-lua{
+    50% {
+        width: 50%;
+    }
+}
+.voa{
+    animation: voa-ovni 5s ease-in-out infinite;
+}
+@keyframes voa-ovni{
+    50%{
+        transform: translateX(200%);
+    }
+}
+.gira{
+    animation: gira-astronauta 2s linear infinite;
+}
+@keyframes gira-astronauta{
+    100%{
+        transform: rotate(360deg);
+    }
+}

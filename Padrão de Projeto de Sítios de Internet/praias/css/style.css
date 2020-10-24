@@ -1,0 +1,192 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+.container-pagina{
+    width: 360px;
+    margin: auto;
+    box-shadow: 0 0 5px black;
+}
+
+.header-pagina, footer{
+    background-color: #61BF17;
+}
+.header-pagina{
+    position: relative;
+    height: 60px;
+}
+.logo-header{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.logo-header h1{
+    margin: 0;
+}
+.logo-header a{
+    font-size: 24px;
+    font-weight: 700;
+}
+nav{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+nav li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 12px;
+}
+nav a{
+    text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.capa{
+    position: relative;
+    height: 432px;
+    background-image: url(../images/image_1.png);
+    background-size: 100% 100%;
+}
+.txt-capa{
+    position: absolute;
+    right: 13px;
+    bottom: 18px;
+    width: 171px;
+}
+.txt-capa p{
+    color: white;
+    font-weight: 700;
+    font-size: 48px;
+}
+
+main{
+    padding: 0 10px;
+}
+.chamada{
+    margin-top: 35px;
+}
+.chamada h2{
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+#praias{
+    margin-top: 40px;
+}
+#praias h2{
+    font-size: 30px;
+    margin-bottom: 23px;
+}
+.card-praia{
+    margin-bottom: 30px;
+}
+.card-praia img{
+    display: block;
+    width: 100%;
+    height: 200px;
+}
+.card-praia-txt-container{
+    background-color: #E5E5E5;
+    padding: 10px;
+}
+.card-praia-txt-container h3{
+    margin-top: 0;
+    font-size: 24px;
+}
+.card-praia-txt-container p{
+    margin: 0;
+}
+
+aside{
+    width: 300px;
+    margin: auto;
+    margin-top: 53px;
+}
+.pessoa-mar{
+    border-radius: 50%;
+}
+.citacao{
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+.autor-citacao{
+    font-style: italic;
+}
+.container-contato{
+    background-color: #E5E5E5;
+    padding: 20px;
+}
+.container-contato h3{
+    font-size: 24px;
+    margin-top: 0;
+}
+#btn-contato{
+    background-color: #61BF17;
+    border-radius: 5px;
+    width: 260px;
+    height: 70px;
+    color: white;
+    border: none;
+    font-weight: 700;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+footer{
+    padding: 10px 10px 21px 10px;
+    margin-top: 25px;
+}
+footer h1{
+    margin: 0;
+    font-size: 24px;
+}
+footer p{
+    margin: 11px 0 0 0;
+    color: white;
+}
+
+@media screen and (min-width: 970px){
+    .container-pagina{
+        width: 960px;
+    }
+
+    nav li{
+        margin-left: 51px;
+    }
+    
+    .txt-capa{
+        bottom: 197px;
+        width: auto;
+    }
+
+    .flex-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    .conteudo{
+        padding: 0 10px;
+    }
+    main{
+        padding: 0;
+    }
+    #praias{
+        width: 620px;
+    }
+    .card-praia{
+        width: 300px;
+    }
+    .card-praia-txt-container{
+        background-color: transparent;
+    }
+    .cards-finais{
+        margin-bottom: 0;
+    }
+}

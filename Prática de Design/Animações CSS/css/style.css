@@ -1,0 +1,110 @@
+.container{
+    border: 3px solid black;
+    width: 960px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.muda-cor{
+    width: 100%;
+    height: 160px;
+    background-color: blue;
+    margin-bottom: 30px;
+    animation: muda-de-cor 6s infinite;
+}
+@keyframes muda-de-cor{
+    25% {
+        background-color: blueviolet;
+    }
+    50% {
+        background-color: brown;
+    }
+    75% {
+        background-color: aqua;
+    }
+}
+
+.container-muda-tamanho{
+    width: 100%;
+    height: 160px;
+    margin-bottom: 30px;
+}
+.muda-tamanho{
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+    animation: muda-de-tamanho 3s infinite;
+    animation-timing-function: linear;
+}
+@keyframes muda-de-tamanho{
+    25% {
+        width: 75%;
+        height: 75%;
+    }
+    50% {
+        width: 50%;
+        height: 50%;
+    }
+    75% {
+        width: 75%;
+        height: 75%;
+    }
+}
+
+.container-muda-escala{
+    width: 100%;
+    height: 160px;
+    margin-bottom: 30px;
+}
+.muda-escala{
+    width: 100%;
+    height: 100%;
+    background-color: crimson;
+    animation: muda-de-escala 3s infinite;
+    animation-timing-function: linear;
+}
+@keyframes muda-de-escala{
+    50%{
+        transform: scale(50%);
+    }
+}
+
+.personagem{
+    margin-bottom: 30px;
+    position: relative;
+    height: 300px;
+}
+.crocodilo{
+    position: absolute;
+    animation: andando 6s infinite;
+    animation-timing-function: linear;
+    transform: translate(-100%);
+}
+@keyframes andando{
+    100% {
+        transform: translate(200%);
+    }
+}
+
+.container-bola{
+    height: 300px;
+    position: relative;
+}
+.bola-pinga{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100px;
+    height: 100px;
+    background-color: firebrick;
+    border-radius: 50%;
+    animation: pingando 1s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes pingando{
+    50% {
+        top: 200px;
+    }
+}

@@ -1,0 +1,27 @@
+.layout{
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background-image: url(../Images/fundo.png);
+}
+
+.circulo, .quadrado{
+    position: absolute;
+    top: 50%;
+}
+.circulo{
+    left: 20%;
+    transform: translate(-50%, -50%);
+    transform: scale(0.6);
+}
+.triangulo{
+    position: absolute;
+    top: 30%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+}
+.quadrado{
+    left: 60%;
+    transform: translate(-50%, -50%);
+    transform: rotate(90deg);
+}
