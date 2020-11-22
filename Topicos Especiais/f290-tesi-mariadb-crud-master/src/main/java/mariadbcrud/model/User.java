@@ -1,0 +1,85 @@
+package mariadbcrud.model;
+
+import mariadbcrud.dao.UserDao;
+
+import java.util.Scanner;
+
+public class User {
+    private String name;
+    private String email;
+    private String userName;
+    private String password;
+
+    public User(String name, String email, String userName, String password) {
+        this.name = name;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public static void inserirUsuario(ConnectionInfo infoDaConexao) {
+        Scanner sc = new Scanner(System.in);
+        String nome, email, apelido, senha;
+
+        System.out.println("Digite os dados:");
+        System.out.print("Nome: ");
+        nome = sc.nextLine();
+        System.out.print("E-mail: ");
+        email = sc.nextLine();
+        System.out.print("Apelido: ");
+        apelido = sc.nextLine();
+        System.out.print("Senha: ");
+        senha = sc.nextLine();
+
+
+        User usuario = new User(nome, email, apelido, senha);
+
+        UserDao.create(usuario, infoDaConexao);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public User setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public User setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public User setUserName(String userName) {
+        this.userName = userName;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public User setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+}
