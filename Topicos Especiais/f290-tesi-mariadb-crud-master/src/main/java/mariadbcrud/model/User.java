@@ -2,6 +2,7 @@ package mariadbcrud.model;
 
 import mariadbcrud.dao.UserDao;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class User {
@@ -9,12 +10,23 @@ public class User {
     private String email;
     private String userName;
     private String password;
+    private int id;
+
+
 
     public User(String name, String email, String userName, String password) {
         this.name = name;
         this.email = email;
         this.userName = userName;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public static void inserirUsuario(ConnectionInfo infoDaConexao) {

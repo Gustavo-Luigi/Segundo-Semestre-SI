@@ -23,6 +23,4 @@ public class ConnectionFactory {
             throw new RuntimeException(e);
         }
     }
-
-    //TODO: Realizar sobrescrita de método  [ getConexao() ] para receber um aparametro [ ConnectionInfo ] e subtibituir os dados da url de conexão pelos dados do parametro recebido.
 }

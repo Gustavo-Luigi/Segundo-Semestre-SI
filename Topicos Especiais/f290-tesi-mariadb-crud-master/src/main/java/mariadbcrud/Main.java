@@ -1,5 +1,6 @@
 package mariadbcrud;
 
+import mariadbcrud.dao.UserDao;
 import mariadbcrud.model.ConnectionInfo;
 import mariadbcrud.model.User;
 
@@ -11,18 +12,6 @@ public class Main {
         ConnectionInfo conexaoFatec = new ConnectionInfo("fatec", "root", "");
 
         menu(conexaoFatec);
-
-        //TODO: Remover trecho apos validar conexao com o banco de dados.
-//        String query = "SELECT VERSION();";
-//        try (Statement st = ConnectionFactory.getConexao(conexaoFatec).createStatement();
-//             ResultSet rs = st.executeQuery(query)) {
-//            if (rs.next()) {
-//                System.out.println(rs.getString(1));
-//            }
-//        } catch (SQLException ex) {
-//            Logger lgr = Logger.getLogger(Main.class.getName());
-//            lgr.log(Level.SEVERE, ex.getMessage(), ex);
-//        }
     }
 
     public static void menu(ConnectionInfo infoDaConexao) {
@@ -34,7 +23,7 @@ public class Main {
             System.out.printf("Escolha uma opcao:\n" +
                     "\t1. Registrar aluno\n" +
                     "\t2. Ver registros\n" +
-                    "\t3. Editar Registro\n" +
+                    "\t3. Editar Email\n" +
                     "\t4. Deletar Registro\n" +
                     "\t5. Sair\n");
 
@@ -45,6 +34,15 @@ public class Main {
                 case 1:
                     User.inserirUsuario(infoDaConexao);
                     break;
+                case 2:
+                    UserDao.read(infoDaConexao);
+                    break;
+                case 3:
+                    UserDao.update(infoDaConexao);
+                    break;
+                case 4:
+                    UserDao.delete(infoDaConexao);
+                    break;
                 case 5:
                     sair = true;
                     break;
@@ -54,6 +52,4 @@ public class Main {
             }
         }
     }
-
-    //TODO: Realizar testes de inclusão, leitura, remoção e atualização de dados na entidade [ user ].
 }
