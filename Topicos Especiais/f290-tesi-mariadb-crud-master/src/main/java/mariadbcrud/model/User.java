@@ -12,7 +12,9 @@ public class User {
     private String password;
     private int id;
 
+    public User(){
 
+    }
 
     public User(String name, String email, String userName, String password) {
         this.name = name;
@@ -27,6 +29,23 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public static User newInstance(){
+        Scanner sc = new Scanner(System.in);
+        User user = new User();
+
+        System.out.println("Digite os dados:");
+        System.out.print("Nome: ");
+        user.name = sc.nextLine();
+        System.out.print("E-mail: ");
+        user.email = sc.nextLine();
+        System.out.print("Apelido: ");
+        user.userName = sc.nextLine();
+        System.out.print("Senha: ");
+        user.password = sc.nextLine();
+
+        return user;
     }
 
     public static void inserirUsuario(ConnectionInfo infoDaConexao) {

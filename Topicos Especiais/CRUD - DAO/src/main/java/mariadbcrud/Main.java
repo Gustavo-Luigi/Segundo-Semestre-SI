@@ -4,6 +4,8 @@ import mariadbcrud.dao.UserDao;
 import mariadbcrud.model.ConnectionInfo;
 import mariadbcrud.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -16,40 +18,50 @@ public class Main {
 
     public static void menu() {
         boolean sair = false;
-        int opcao;
+        int opcao, id;
 
         ConnectionInfo conexaoFatec = new ConnectionInfo("fatec", "root", "");
         UserDao daoFatec = new UserDao(conexaoFatec);
-        User usuario = new User();
+        User aluno = new User();
+        List<User> listaDeAlunos = new ArrayList<>();
 
         Scanner sc = new Scanner(System.in);
 
         while(!sair) {
             System.out.printf("Escolha uma opcao:\n" +
                     "\t1. Registrar aluno\n" +
-                    "\t2. Ver registros\n" +
-                    "\t3. Editar Email\n" +
-                    "\t4. Deletar Registro\n" +
-                    "\t5. Sair\n");
+                    "\t2. Ver todos os registros\n" +
+                    "\t3. Ver um registro\n" +
+                    "\t4. Editar Email\n" +
+                    "\t5. Deletar Registro\n" +
+                    "\t6. Sair\n");
 
             opcao = sc.nextInt();
             sc.nextLine();
 
             switch (opcao) {
                 case 1:
-                    usuario = User.newInstance();
-                    daoFatec.insert(usuario);
+                    aluno = User.newInstance();
+                    daoFatec.insert(aluno);
                     break;
-//                case 2:
-//                    UserDao.read(infoDaConexao);
-//                    break;
+                case 2:
+                    listaDeAlunos = daoFatec.findAll();
+                    Main.mostrarListaDeAlunos(listaDeAlunos);
+                    break;
+                case 3:
+                    System.out.println("Qual ID deseja procurar?");
+                    id = sc.nextInt();
+                    sc.nextLine();
+                    aluno = daoFatec.findById(id);
+                    mostrarAluno(aluno);
+                    break;
 //                case 3:
 //                    UserDao.update(infoDaConexao);
 //                    break;
 //                case 4:
 //                    UserDao.delete(infoDaConexao);
 //                    break;
-                case 5:
+                case 6:
                     sair = true;
                     break;
                 default:
@@ -58,4 +70,25 @@ public class Main {
             }
         }
     }
+
+    public static void mostrarListaDeAlunos(List<User> listaDeAlunos) {
+
+        for(User aluno: listaDeAlunos) {
+            mostrarAluno(aluno);
+        }
+    }
+
+    public static void mostrarAluno(User aluno) {
+        if(aluno.getName() != null){
+            System.out.printf("ID: %d\n" +
+                    "Nome: %s\n" +
+                    "Apelido: %s\n" +
+                    "E-mail: %s\n" +
+                    "************\n", aluno.getId(), aluno.getName(), aluno.getUserName(), aluno.getEmail());
+            } else {
+                System.out.println("Aluno não encontrado!");
+            }
+        }
+
+
 }

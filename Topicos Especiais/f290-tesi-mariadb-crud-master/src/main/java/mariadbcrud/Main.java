@@ -9,14 +9,19 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        ConnectionInfo conexaoFatec = new ConnectionInfo("fatec", "root", "");
 
-        menu(conexaoFatec);
+
+        menu();
     }
 
-    public static void menu(ConnectionInfo infoDaConexao) {
+    public static void menu() {
         boolean sair = false;
         int opcao;
+
+        ConnectionInfo conexaoFatec = new ConnectionInfo("fatec", "root", "");
+        UserDao daoFatec = new UserDao(conexaoFatec);
+        User usuario = new User();
+
         Scanner sc = new Scanner(System.in);
 
         while(!sair) {
@@ -32,17 +37,18 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    User.inserirUsuario(infoDaConexao);
+                    usuario = User.newInstance();
+                    daoFatec.insert(usuario);
                     break;
-                case 2:
-                    UserDao.read(infoDaConexao);
-                    break;
-                case 3:
-                    UserDao.update(infoDaConexao);
-                    break;
-                case 4:
-                    UserDao.delete(infoDaConexao);
-                    break;
+//                case 2:
+//                    UserDao.read(infoDaConexao);
+//                    break;
+//                case 3:
+//                    UserDao.update(infoDaConexao);
+//                    break;
+//                case 4:
+//                    UserDao.delete(infoDaConexao);
+//                    break;
                 case 5:
                     sair = true;
                     break;

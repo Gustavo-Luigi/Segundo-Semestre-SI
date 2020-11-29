@@ -1,0 +1,94 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    font-family: "Rubik", sans-serif;
+    font-style: italic;    
+}
+
+.sec-principal{
+    width: 960px;
+    margin: auto;
+    background-color: #EBEBEB;
+    box-shadow: 0 0 15px black;
+}
+nav{
+    background-color: #003650;
+    color: white;
+    position: relative;
+}
+nav ul{
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin-right: 80px;
+}
+nav h1{
+    display: inline-block;
+    margin-left: 80px;
+}
+nav li a{
+    color: white;
+    text-decoration: none;
+}
+
+nav li a:hover{
+    color: rgb(3, 232, 248);
+}
+.cabecalho{
+    background-image: url(../images/cabecalho.jpg);
+    height: 500px;
+    position: relative;
+}
+.cabecalho-txt{
+    background-color: rgba(196, 195, 195, 0.589);
+    width: 300px;
+    padding: 5px 15px;
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+}
+.primeira-sec{
+    padding: 60px 90px;
+}
+.segunda-sec, address{
+    background-color: #003650;
+    color: white;
+    padding: 80px;
+}
+.colunas{
+    display: flex;
+    justify-content: space-between;
+}
+.servicos{
+    width:150px;
+}
+.nossos-clientes{
+    padding: 60px;
+}
+.logo-clientes img{
+    width: 150px;
+    margin-top: 30px;
+}
+.endereco{
+    width:350px;
+}
+footer{
+    position: relative;
+    height:30px;
+}
+footer p{
+    margin: 0;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%,-50%);
+    color: #003650;
+}

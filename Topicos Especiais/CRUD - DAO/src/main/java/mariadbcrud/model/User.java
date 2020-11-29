@@ -48,25 +48,25 @@ public class User {
         return user;
     }
 
-    public static void inserirUsuario(ConnectionInfo infoDaConexao) {
-        Scanner sc = new Scanner(System.in);
-        String nome, email, apelido, senha;
-
-        System.out.println("Digite os dados:");
-        System.out.print("Nome: ");
-        nome = sc.nextLine();
-        System.out.print("E-mail: ");
-        email = sc.nextLine();
-        System.out.print("Apelido: ");
-        apelido = sc.nextLine();
-        System.out.print("Senha: ");
-        senha = sc.nextLine();
-
-
-        User usuario = new User(nome, email, apelido, senha);
-
-        UserDao.create(usuario, infoDaConexao);
-    }
+//    public static void inserirUsuario(ConnectionInfo infoDaConexao) {
+//        Scanner sc = new Scanner(System.in);
+//        String nome, email, apelido, senha;
+//
+//        System.out.println("Digite os dados:");
+//        System.out.print("Nome: ");
+//        nome = sc.nextLine();
+//        System.out.print("E-mail: ");
+//        email = sc.nextLine();
+//        System.out.print("Apelido: ");
+//        apelido = sc.nextLine();
+//        System.out.print("Senha: ");
+//        senha = sc.nextLine();
+//
+//
+//        User usuario = new User(nome, email, apelido, senha);
+//
+//        UserDao.create(usuario, infoDaConexao);
+//    }
 
     public String getName() {
         return name;

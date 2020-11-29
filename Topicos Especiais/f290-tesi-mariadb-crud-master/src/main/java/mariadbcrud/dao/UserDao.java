@@ -10,15 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class UserDao {
+public class UserDao implements Dao<User>{
 
-    private static Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in); // remover
+    private ConnectionInfo infoDaConexao;
+
+    public UserDao(ConnectionInfo infoDaConexao){
+        this.infoDaConexao = infoDaConexao;
+    }
 
     public static void create(User usuario, ConnectionInfo infoDaConexao) {
-        String name = usuario.getName();
-        String userName = usuario.getUserName();
-        String password = usuario.getPassword();
-        String email = usuario.getEmail();
         String sql = "INSERT INTO alunos(name, username, password, email) VALUES (?, ?, ?, ?)";
 
         Connection conn;
@@ -26,10 +27,10 @@ public class UserDao {
         try {
             conn = ConnectionFactory.getConexao(infoDaConexao);
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, name);
-            pstm.setString(2, userName);
-            pstm.setString(3, password);
-            pstm.setString(4, email);
+            pstm.setString(1, usuario.getName());
+            pstm.setString(2, usuario.getUserName());
+            pstm.setString(3, usuario.getPassword());
+            pstm.setString(4, usuario.getEmail());
 
             pstm.execute();
 
@@ -159,5 +160,47 @@ public class UserDao {
         } else {
             System.out.println("ID inválido!");
         }
+    }
+
+    @Override
+    public void insert(User usuario) {
+        String sql = "INSERT INTO alunos(name, username, password, email) VALUES (?, ?, ?, ?)";
+
+        Connection conn;
+        PreparedStatement pstm;
+        try {
+            conn = ConnectionFactory.getConexao(this.infoDaConexao);
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, usuario.getName());
+            pstm.setString(2, usuario.getUserName());
+            pstm.setString(3, usuario.getPassword());
+            pstm.setString(4, usuario.getEmail());
+
+            pstm.execute();
+
+            System.out.println("Contato salvo com sucesso!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public User update(User user) {
+        return null;
+    }
+
+    @Override
+    public void delete(Integer id) {
+
+    }
+
+    @Override
+    public User findById(Integer id) {
+        return null;
+    }
+
+    @Override
+    public List<User> findAll() {
+        return null;
     }
 }

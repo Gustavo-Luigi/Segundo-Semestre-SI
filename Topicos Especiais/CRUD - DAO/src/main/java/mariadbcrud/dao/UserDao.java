@@ -19,26 +19,26 @@ public class UserDao implements Dao<User>{
         this.infoDaConexao = infoDaConexao;
     }
 
-    public static void create(User usuario, ConnectionInfo infoDaConexao) {
-        String sql = "INSERT INTO alunos(name, username, password, email) VALUES (?, ?, ?, ?)";
-
-        Connection conn;
-        PreparedStatement pstm;
-        try {
-            conn = ConnectionFactory.getConexao(infoDaConexao);
-            pstm = conn.prepareStatement(sql);
-            pstm.setString(1, usuario.getName());
-            pstm.setString(2, usuario.getUserName());
-            pstm.setString(3, usuario.getPassword());
-            pstm.setString(4, usuario.getEmail());
-
-            pstm.execute();
-
-            System.out.println("Contato salvo com sucesso!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void create(User usuario, ConnectionInfo infoDaConexao) {
+//        String sql = "INSERT INTO alunos(name, username, password, email) VALUES (?, ?, ?, ?)";
+//
+//        Connection conn;
+//        PreparedStatement pstm;
+//        try {
+//            conn = ConnectionFactory.getConexao(infoDaConexao);
+//            pstm = conn.prepareStatement(sql);
+//            pstm.setString(1, usuario.getName());
+//            pstm.setString(2, usuario.getUserName());
+//            pstm.setString(3, usuario.getPassword());
+//            pstm.setString(4, usuario.getEmail());
+//
+//            pstm.execute();
+//
+//            System.out.println("Contato salvo com sucesso!");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public static List<User> read(ConnectionInfo infoDaConexao){
         String sql = "SELECT * FROM alunos";
@@ -196,11 +196,68 @@ public class UserDao implements Dao<User>{
 
     @Override
     public User findById(Integer id) {
-        return null;
+        String sql = "SELECT * FROM alunos";
+        User aluno = new User();
+
+        Connection conn;
+        PreparedStatement pstm;
+        ResultSet rset;
+        try {
+            conn = ConnectionFactory.getConexao(this.infoDaConexao);
+            pstm = conn.prepareStatement(sql);
+            rset = pstm.executeQuery();
+
+            while(rset.next()) {
+                System.out.println("O id é " + rset.getInt("id"));
+                if(rset.getInt("id") == id) {
+                    aluno.setId(rset.getInt("id"));
+                    aluno.setName(rset.getString("name"));
+                    aluno.setEmail(rset.getString("email"));
+                    aluno.setUserName(rset.getString("username"));
+                    aluno.setPassword(rset.getString("password"));
+                    break;
+                }
+            }
+        } catch(Exception e) {
+            System.out.println("Falha na leitura dos dados");
+            e.printStackTrace();
+        }
+
+        return aluno;
     }
 
     @Override
     public List<User> findAll() {
-        return null;
+        String sql = "SELECT * FROM alunos";
+
+        List<User> listaDeAlunos = new ArrayList<>();
+
+        Connection conn;
+        PreparedStatement pstm;
+        // Classe que irá recuperar os dados do banco (SELECT).
+        ResultSet rset;
+
+        try {
+            conn = ConnectionFactory.getConexao(this.infoDaConexao);
+            pstm = conn.prepareStatement(sql);
+            rset = pstm.executeQuery();
+
+            while(rset.next()) {
+                User aluno = new User();
+
+                aluno.setId(rset.getInt("id"));
+                aluno.setName(rset.getString("name"));
+                aluno.setEmail(rset.getString("email"));
+                aluno.setUserName(rset.getString("username"));
+                aluno.setPassword(rset.getString("password"));
+
+                listaDeAlunos.add(aluno);
+            }
+        } catch(Exception e) {
+            System.out.println("Falha na leitura dos dados");
+            e.printStackTrace();
+        }
+
+        return listaDeAlunos;
     }
 }
