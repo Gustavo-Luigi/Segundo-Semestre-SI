@@ -11,14 +11,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-
-
         menu();
     }
 
     public static void menu() {
         boolean sair = false;
         int opcao, id;
+        String email;
 
         ConnectionInfo conexaoFatec = new ConnectionInfo("fatec", "root", "");
         UserDao daoFatec = new UserDao(conexaoFatec);
@@ -55,12 +54,32 @@ public class Main {
                     aluno = daoFatec.findById(id);
                     mostrarAluno(aluno);
                     break;
-//                case 3:
-//                    UserDao.update(infoDaConexao);
-//                    break;
-//                case 4:
-//                    UserDao.delete(infoDaConexao);
-//                    break;
+                case 4:
+                    System.out.println("Qual ID do aluno que deseja alterar o e-mail?");
+                    id = sc.nextInt();
+                    sc.nextLine();
+                    aluno = daoFatec.findById(id);
+                    if(aluno.getName() != null){
+                        System.out.println("Qual o novo email?");
+                        email = sc.nextLine();
+                        aluno.setEmail(email);
+                        daoFatec.update(aluno);
+                    } else {
+                        System.out.println("Ocorreu um erro, verifique o ID do usuario.");
+                    }
+
+                    break;
+                case 5:
+                    System.out.println("Digite o ID do usuario que deseja excluir");
+                    id = sc.nextInt();
+                    sc.nextLine();
+                    aluno = daoFatec.findById(id);
+                    if(aluno.getName() != null) {
+                        daoFatec.delete(id);
+                    } else {
+                        System.out.println("Ocorreu um erro, verifique o ID do usuario.");
+                    }
+                    break;
                 case 6:
                     sair = true;
                     break;
