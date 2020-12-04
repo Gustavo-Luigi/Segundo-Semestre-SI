@@ -1,0 +1,225 @@
+@import './variables';
+
+body{
+    margin: 0;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+main, aside, .footer-content, .logo-nav-container{
+    min-width: 340px;
+    max-width: 960px;
+    padding: 0 10px;
+    margin: auto;
+}
+.logo-nav-container{
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.main-header, .page-footer{
+    width: 100%;
+    background-color: $gray-bg;
+}
+.main-header{
+    height: 60px;
+    margin-bottom: $section-margin;
+}
+.logo-nav-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    margin: auto;
+}
+.navbar{
+    ul{
+        padding: 0;
+    }
+    li{
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+    }
+    a{
+        text-decoration: none;
+        font-size: $medium-font-size;
+        color: black;
+        text-transform: uppercase;
+    }
+}
+
+.featured-article{
+    position: relative;
+    width: 100%;
+    height: 498px;
+    overflow: hidden;
+    margin-bottom: $section-margin;
+    img{
+        object-position: -190px;
+        height: 100%;
+    }
+    .featured-txt{
+        position: absolute;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 0 5px;
+        color: white;
+        h2{
+            margin: 10px 0;
+        }
+    }
+}
+
+.section-header{
+    width: 100%;
+    height: 30px;
+    background-color: $section-header-bg;
+    color: white;
+    margin-bottom: $section-margin;
+    padding-left: 10px;
+    box-sizing: border-box;
+    h2{
+        margin: 0;
+    }
+}
+
+.article-card{
+    margin-bottom: $section-margin;
+    img{
+        width: 100%;
+    }
+    h3{
+        font-size: $large-font-size;
+        margin: 10px 0;
+    }
+    p{
+        margin: 15px 0;
+    }
+}
+
+.video-card{
+    position: relative;
+    margin-bottom: $section-margin;
+    .video-thumbnail{
+        width: 100%;
+    }
+    .play-btn{
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.blog-card{
+    width: 100%;
+    height: 76px;
+    display: flex;
+    background-color: $gray-bg;
+    box-shadow: 0 2px 5px black;
+    margin-bottom: $section-margin;
+    .blog-img{
+        width: 76px;
+        height: 100%;
+        img{
+            height: 100%;
+        }
+    }
+    .blog-txt{
+        padding: 5px;
+        box-sizing: border-box;
+        h3{
+            margin: 0;
+        }
+    }
+}
+
+.page-footer{
+    height: 140px;
+    .footer-content{
+        padding-top: 10px;
+        h2{
+            margin: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 564px) {
+    .featured-article{
+        width: 100%;
+        height: unset;
+        img{
+            object-position: unset;
+            width: 100%;
+        }
+        .featured-txt{
+            padding: 0 10px;
+        }
+    }
+}
+@media screen and (min-width: 960px) {
+    .flex-layout{
+        display: flex;
+        justify-content: space-between;
+        width: 960px;
+        box-sizing: border-box;
+        margin: auto;
+    }
+    main{
+        width: 556px;
+        padding: unset;
+        padding-left: 10px;
+        box-sizing: border-box;
+        margin: 0;
+    }
+    aside{
+        padding: unset;
+        padding-right: 10px;
+        margin: 0;
+    }
+    .logo-nav-container{
+        width: 960px;
+    }
+
+
+    .article-nav{
+        display: flex;
+        justify-content: space-between;
+        .article-card{
+            width: 172px;
+            .article-card-img{
+                height: 140px;
+                overflow: hidden;
+                img{
+                    width: unset;
+                    height: 100%;
+                    object-position: -110px;
+                }
+            }
+        }
+    }
+
+    .final-articles{
+        display: flex;
+        justify-content: space-between;
+        .blog-card{
+            width: 172px;
+            height: unset;
+            flex-direction: column;
+            .blog-img{
+                height: 76px;
+                width: 100%;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    height: unset;
+                    object-position: 0 -45px;
+                }
+            }
+        }
+    }
+
+}
