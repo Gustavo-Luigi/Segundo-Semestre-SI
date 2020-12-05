@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Prova Individual</title>
+    <link rel="stylesheet" href="css/prova.css">
+    <link rel="stylesheet" href="css/respostas.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Prática de Design: Prova Individual - 04/12/2020</h1>
+        <h2>Nome: Gustavo Luigi Zanibão</h2>
+      </header>
+      <section class="instrucoes">
+        <h2>Instruções para realização da prova</h2>
+        <ul>
+          <li>Dentro da pasta CSS existem dois arquivos. Monte seu código de resposta no arquivo "respostas.css". Ele ainda não está referenciado, e faz parte da prova sua correta referenciação dentro da pasta css.</li>
+          <li>Os arquivos de imagem se encontram na pasta "images". Dentro dessas pastas você encontrará subpastas, cada uma delas contendo as imagens referentes a cada um dos exercicios. Não mova os arquivos de lugar, faça sua referenciação nos locais previamente estabelecidos.</li>
+          <li>Os arquivos de audio se encontram na pasta "images". Dentro dessa pasta você encontrará subpastas, cada uma delas contendo os audios referentes a cada um dos exercicios. Não mova os arquivos de lugar, faça sua referenciação nos locais previamente estabelecidos.</li>
+          <li>A soma dos exercicios da prova é 14 (quatorze), mas a nota final máxima é 10(dez). Pontos excedentes serão descartados e você não precisa resolver a prova toda para tirar 10. </li>
+          <li>De qualquer forma, recomendo fortemente que tente resolver a prova toda. Isso aumentará suas chances de obter uma nota elevada.</li>
+        </ul>
+      </section>
+      <section class="exercicios">
+        <header>
+          <h2>Exercício 1 (2,0)</h2>
+          <p>Dada a imagem de referência no arquivo "papaiNoel.jpg" na pasta "images/ex1", faça uma cópia do arquivo, recorte a figura do Papai Noel, exporte-a em transparência e a coloque sobre um fundo de cor azul. A cor de fundo deve ser definida por meio de css.</p>
+        </header>
+        <div class="resposta ex1">
+          <img src="images/ex1/papaiNoel.png" alt="">
+        </div>
+      </section>
+      <section class="exercicios">
+        <header>
+          <h2>Exercício 2 (2,0)</h2>
+          <p>Dada a imagem da personagem caminhando disponível na pasta "images/ex2", faça com ela atravesse a tela da esquerda para a direita e volte à posição inicial. Não esqueça de mudar a direção da personagem: ela deve estar olhando na direção para qual ela se desloca. Faça de modo que a animação seja repetida infintamente.</p>
+        </header>
+        <div class="resposta">
+          <img src="images/ex2/caminhada.gif" alt="" class="walking">
+        </div>
+      </section>
+      <section class="exercicios">
+        <header>
+          <h2>Exercício 3 (2,0)</h2>
+          <p>Carregue a imagem disponível na pasta "images/ex3" e faça com que, ao ser clicada, ela toque o som disponível na pasta "audio/ex3".</p>
+        </header>
+        <div class="resposta">
+          <img src="images/ex3/cavalo.png" alt="" class="cavalo" onclick="tocar()">
+          <audio src="audio/ex3/cavalo.mp3" id="som">
+
+          </audio>
+        </div>
+      </section>
+      <section class="exercicios">
+        <header>
+          <h2>Exercício 4 (2,0)</h2>
+          <p>Use posicionamento absoluto e relativo para posicionar as imagens na pasta "ex4" para que corresponda à composição no arquivo "ex5Ref.psd".</p>
+        </header>
+        <div class="resposta ex4">
+          <img src="images/ex4/circulo.png" alt="" class="circulo">
+          <img src="images/ex4/quadrado.png" alt="" class="quadrado">
+          <img src="images/ex4/triangulo.png" alt="" class="triangulo">
+        </div>
+      </section>
+      <section>
+        <header>
+          <h2>Exercício 5 (2,0)</h2>
+          <p>Crie uma forma geométrica qualquer em css. Crie uma animação simples de escala ou rotação para esse elemento, mas não atribua por padrão. Em vez disso, use um evento de clique para ativar a animação.</p>
+        </header>
+        <div class="resposta">
+          <div id="forma" onclick="animar()"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+      function tocar(){
+        var audio = document.getElementById('som');
+        console.log('Teste');
+        audio.play();
+      }
+      let elemento = document.getElementById('forma');
+      function animar(){
+        elemento.classList.toggle('animacao');
+      }
+    </script>
+  </body>
+</html>

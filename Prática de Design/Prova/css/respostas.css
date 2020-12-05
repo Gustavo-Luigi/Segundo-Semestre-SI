@@ -1,0 +1,85 @@
+.resposta{
+    position: relative;
+    overflow: hidden;
+}
+
+/* Exercicio 1 */
+
+.ex1 {
+    background-color: blue;
+}
+
+
+/* Exercicio 2 */
+
+.walking{
+    position: absolute;
+    bottom: 5%;
+    animation: walkCycle linear infinite 5s;
+    transform: translateX(-200%);
+}
+
+@keyframes walkCycle{
+    49% {
+        transform: translate(500%);
+    }
+    50%{
+
+        transform: translate(500%) scaleX(-1);
+    }
+    100% {
+        transform: translate(-200%) scaleX(-1);
+    }
+}
+
+/*  Exercicio 3 */
+
+.cavalo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+/* Exercicio 4 */
+
+.ex4{
+    background-image: url(../images/ex4/fundo.png);
+}
+
+.circulo, .quadrado, .triangulo{
+    position: absolute;
+    top: 50%;
+}
+.circulo{
+    left: 5%;
+    transform: translateY(-50%);
+}
+.quadrado{
+    right: 5%;
+    transform: translateY(-50%);
+}
+.triangulo{
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Exercicio 5 */
+
+#forma{
+    width: 20%;
+    height: 20%;
+    background-color: red;
+    cursor: pointer;
+}
+.animacao{
+    animation: mudaCor linear infinite 3s;
+}
+
+@keyframes mudaCor {
+    50% {
+        transform: scale(9);
+        background-color: purple;
+    }
+}
